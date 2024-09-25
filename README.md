@@ -40,4 +40,31 @@ To enable comprehensive analysis, the following relationships were established b
 * sellers_dataset with geolocation_dataset using zip_code_prefix
 * order_customer_dataset with geolocation_dataset using zip_code_prefix 
 
+## Metrics and KPIs
+* Total Revenue
+* Total Orders
+* Total Sellers
+* Total Products
+* Avg Review Score
+* Total Customers
+* Avg Revenue Per Customer
+* Response Rate
+* Avg Freight Value
+* Avg Order Value
+* Total Categories
+* Avg Product Price
+
+## Calculations (DAX)
+* Total Revenue = SUM('order_items_dataset'[total_value])
+* Number of Sales = COUNT('orders_dataset'[order_id])
+* Average Ticket = DIVIDE([Total Revenue], [Number of Sales])
+* Number of Unique Customers = DISTINCTCOUNT('orders_dataset'[customer_id])
+* On_time_delivery = IF( AND(orders_dataset[order_status] = "delivered", orders_dataset[order_delivered_customer_date]<= orders_dataset[order_estimated_delivery_date]), "On Time", 
+  IF(AND(orders_dataset[order_status] = "delivered", orders_dataset[order_delivered_customer_date]> orders_dataset[order_estimated_delivery_date]), "Late", "Not Delivered"))
+* Percentage_on_time = DIVIDE( CALCULATE(COUNTROWS(orders_dataset),orders_dataset[On_time_delivery] = "On time"),COUNTROWS(orders_dataset))
+* Top Selling Products = TOPN(10, SUMMARIZE('order_items_dataset', 'products_dataset'[product_category_name]), [Total Revenue])
+* Sales by State = SUMMARIZE('customers_dataset', 'customers_dataset'[customer_state], [Total Revenue])
+* Sales Over Time = SUMMARIZE('orders_dataset', 'orders_dataset'[order_purchase_timestamp], [Total Revenue])
+
+## Visualizations
 
