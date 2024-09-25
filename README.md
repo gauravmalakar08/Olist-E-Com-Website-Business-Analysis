@@ -12,6 +12,9 @@ Undertaken as part of an online data analysis challenge, this project allowed me
 
 The raw data was obtained from [Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce). It contains 9 tables which are Olist_customers, Olist_geolocation, Olist_order_items, Olist_order_payments, Olist_order_reviews, Olist_orders, Olist_products, Olist_sellers, Product_category_name. These tables contain a wide range of information about each order, including the order date, product details, payment and shipping information, customer and seller IDs, customer reviews, sellers who list their products on Olist, and data on customer behavior and demographics. You can check out the data dictionary to describe the tables' contents.
 
+## Data Schema
+![Image B](https://github.com/user-attachments/assets/7cfe0d83-be66-4715-a3ee-89f6f9e8f1f3)
+
 ## Tools Used
 * PowerBI
 * Power Query Editor
@@ -29,6 +32,12 @@ Several SQL queries were performed on the database to extract meaningful insight
 To enable comprehensive analysis, the following relationships were established between the tables:
 
 * orders_dataset with order_items_dataset using order_id
+* order_reviews_dataset with orders_dataset using order_id
 * order_items_dataset with products_dataset using product_id
 * orders_dataset with order_reviews_dataset using order_id
 * orders_dataset with customers_dataset using customer_id
+* sellers_dataset with order_item_dataset using seller_id
+* sellers_dataset with geolocation_dataset using zip_code_prefix
+* order_customer_dataset with geolocation_dataset using zip_code_prefix 
+
+
