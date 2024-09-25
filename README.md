@@ -6,7 +6,7 @@ This project focuses on Exploratory Data Analysis (EDA) and visualization of a B
 
 Undertaken as part of an online data analysis challenge, this project allowed me to leverage Power BI for comprehensive analysis. By using DAX functions and data modeling techniques, I aimed to uncover actionable insights that highlight potential growth opportunities and optimizations for the Olist platform, while also honing my skills in Power BI.
 
-
+![Image A](https://github.com/user-attachments/assets/f8cbd047-1f4c-4a9c-a574-daebc7b5fc30)
 
 ## About the Data
 
